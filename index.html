@@ -2,10 +2,11 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>濟州島 5 天 4 夜自駕遊</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -39,7 +40,7 @@ h1,h2,h3{font-family:"Noto Serif TC",serif}
 /* tabs */
 .tabs{position:sticky;top:0;z-index:20;background:rgba(246,241,231,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);display:flex;gap:6px;padding:10px 14px;overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
-.tab{flex:0 0 auto;border:none;background:transparent;border-radius:999px;padding:8px 14px;font-size:14px;font-weight:500;color:var(--stone);cursor:pointer;font-family:inherit;white-space:nowrap}
+.tab{flex:0 0 auto;border:none;background:transparent;border-radius:999px;padding:11px 20px;font-size:16px;font-weight:600;color:var(--stone);cursor:pointer;font-family:inherit;white-space:nowrap}
 .tab.active{background:var(--basalt);color:#fff}
 .tab small{display:block;font-size:10px;font-weight:400;opacity:.75;line-height:1}
 
@@ -90,9 +91,10 @@ section h2::before{content:"";width:6px;height:22px;background:var(--tangerine);
 .maplinks a:hover{text-decoration:underline}
 
 /* checklist */
-.check li{list-style:none;display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.check li{list-style:none;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
 .check li:last-child{border:none}
-.check input{margin-top:5px;accent-color:var(--tangerine)}
+.check label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.check input{margin-top:5px;accent-color:var(--tangerine);flex:0 0 auto}
 
 .all-only{display:none}
 body.all .all-only{display:block}
@@ -115,7 +117,6 @@ footer{text-align:center;font-size:12px;color:var(--stone);padding:20px}
 <body class="all">
 
 <header class="hero">
-  <div class="eyebrow"></div>
   <h1>濟州島<br><span>5 天 4 夜</span>自駕遊</h1>
   <div class="sub">涯月 2 晚 ✕ 濟州市 2 晚</div>
   <div class="chips">
@@ -124,13 +125,13 @@ footer{text-align:center;font-size:12px;color:var(--stone);padding:20px}
   </div>
 </header>
 
-<nav class="tabs" id="tabs">
-  <button class="tab active" data-day="all">須知</button>
-  <button class="tab" data-day="1">D1</button>
-  <button class="tab" data-day="2">D2</button>
-  <button class="tab" data-day="3">D3</button>
-  <button class="tab" data-day="4">D4</button>
-  <button class="tab" data-day="5">D5</button>
+<nav class="tabs" id="tabs" role="tablist" aria-label="行程分頁">
+  <button class="tab active" data-day="all" role="tab" aria-selected="true">須知</button>
+  <button class="tab" data-day="1" role="tab" aria-selected="false">D1</button>
+  <button class="tab" data-day="2" role="tab" aria-selected="false">D2</button>
+  <button class="tab" data-day="3" role="tab" aria-selected="false">D3</button>
+  <button class="tab" data-day="4" role="tab" aria-selected="false">D4</button>
+  <button class="tab" data-day="5" role="tab" aria-selected="false">D5</button>
 </nav>
 
 <main class="wrap">
@@ -314,11 +315,11 @@ footer{text-align:center;font-size:12px;color:var(--stone);padding:20px}
   <h2>出發前待辦</h2>
   <div class="card">
     <ul class="check">
-      <li><input type="checkbox"><span>辦理國際駕照，並帶台灣駕照正本</span></li>
-      <li><input type="checkbox"><span>K-ETA 台灣旅客免申請，但務必在起飛前 72 小時內完成電子入境卡（e-Arrival Card）線上申報，已取消紙本</span></li>
-      <li><input type="checkbox"><span>準備 SIM 卡／eSIM</span></li>
-      <li><input type="checkbox"><span>兌換韓元現金（押金、市場小吃）</span></li>
-      <li><input type="checkbox"><span>下載 Naver Map 或 Kakao Map</span></li>
+      <li><label><input type="checkbox"><span>辦理國際駕照，並帶台灣駕照正本</span></label></li>
+      <li><label><input type="checkbox"><span>K-ETA 台灣旅客免申請，但務必在起飛前 72 小時內完成電子入境卡（e-Arrival Card）線上申報，已取消紙本</span></label></li>
+      <li><label><input type="checkbox"><span>準備 SIM 卡／eSIM</span></label></li>
+      <li><label><input type="checkbox"><span>兌換韓元現金（押金、市場小吃）</span></label></li>
+      <li><label><input type="checkbox"><span>下載 Naver Map 或 Kakao Map</span></label></li>
     </ul>
   </div>
 </section>
@@ -340,12 +341,14 @@ footer{text-align:center;font-size:12px;color:var(--stone);padding:20px}
 
 </main>
 
-<footer></footer>
-
 <script>
 const tabs=document.querySelectorAll('.tab');
 function show(d){
-  tabs.forEach(t=>t.classList.toggle('active',t.dataset.day===d));
+  tabs.forEach(t=>{
+    const on=t.dataset.day===d;
+    t.classList.toggle('active',on);
+    t.setAttribute('aria-selected',on);
+  });
   if(d==='all'){document.body.classList.add('all');document.querySelectorAll('.day').forEach(x=>x.classList.remove('show'));}
   else{
     document.body.classList.remove('all');
